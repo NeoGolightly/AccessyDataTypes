@@ -45,6 +45,20 @@ public struct Infrastructure: Codable {
   public let zebraCrossing: [ZebraCrossing]
   public let pedestrianCrossing: [PedestrianCrossing]
   public let intersectionNodes: [IntersectionNode]
+  ///
+  public init(sidewalks: [Sidewalk] = [],
+              trafficLights: [TrafficLight] = [],
+              trafficIsland: [TrafficIsland] = [],
+              zebraCrossing: [ZebraCrossing] = [],
+              pedestrianCrossing: [PedestrianCrossing] = [],
+              intersectionNodes: [IntersectionNode] = []) {
+    self.sidewalks = sidewalks
+    self.trafficLights = trafficLights
+    self.trafficIsland = trafficIsland
+    self.zebraCrossing = zebraCrossing
+    self.pedestrianCrossing = pedestrianCrossing
+    self.intersectionNodes = intersectionNodes
+  }
 }
 
 public struct Sidewalk: InfrastructureType {
@@ -53,6 +67,18 @@ public struct Sidewalk: InfrastructureType {
   public let createdAt: Date?
   public let updatedAt: Date?
   public let deletedAt: Date?
+  ///
+  public init(id: UUID? = nil,
+              pathCoordinates: [Coordinate],
+              createdAt: Date? = nil,
+              updatedAt: Date? = nil,
+              deletedAt: Date? = nil) {
+    self.id = id
+    self.pathCoordinates = pathCoordinates
+    self.createdAt = createdAt
+    self.updatedAt = updatedAt
+    self.deletedAt = deletedAt
+  }
 }
 
 public struct TrafficLight: InfrastructureType {
@@ -79,7 +105,6 @@ public struct ZebraCrossing: InfrastructureType {
   public let deletedAt: Date?
 }
 
-
 public struct PedestrianCrossing: InfrastructureType {
   public let id: UUID?
   public let pathCoordinates: [Coordinate]
@@ -87,7 +112,6 @@ public struct PedestrianCrossing: InfrastructureType {
   public let updatedAt: Date?
   public let deletedAt: Date?
 }
-
 
 public struct IntersectionNode: DateRepresentable, IDRepresentable, AdjacentInfrastructuresRepresentable, Codable {
   public let id: UUID?
@@ -97,6 +121,20 @@ public struct IntersectionNode: DateRepresentable, IDRepresentable, AdjacentInfr
   public let deletedAt: Date?
   //
   public let adjacentInfrastructures: [String]
+  ///
+  public init(id: UUID? = nil,
+              coordinate: Coordinate,
+              createdAt: Date? = nil,
+              updatedAt: Date? = nil,
+              deletedAt: Date? = nil,
+              adjacentInfrastructures: [String] = []) {
+    self.id = id
+    self.coordinate = coordinate
+    self.createdAt = createdAt
+    self.updatedAt = updatedAt
+    self.deletedAt = deletedAt
+    self.adjacentInfrastructures = adjacentInfrastructures
+  }
 }
 
 ///////////////////////////////////////////////////////////////
@@ -110,6 +148,10 @@ public struct IntersectionNode: DateRepresentable, IDRepresentable, AdjacentInfr
 public struct Coordinate: Codable {
   public let latitude: Double
   public let longitude: Double
+  public init(latitude: Double, longitude: Double) {
+    self.latitude = latitude
+    self.longitude = longitude
+  }
 }
 
 ///////////////////////////////////////////////////////////////
