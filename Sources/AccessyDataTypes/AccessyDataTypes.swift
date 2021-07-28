@@ -38,7 +38,7 @@ public typealias InfrastructureType = DateRepresentable & PathRepresentable & ID
 ///
 ///////////////////////////////////////////////////////////////
 
-public struct Infrastructure {
+public struct Infrastructure: Codable {
   public let sidewalks: [Sidewalk]
   public let trafficLights: [TrafficLight]
   public let trafficIsland: [TrafficIsland]
@@ -151,3 +151,4 @@ public struct Region {
 ///
 ///
 ///////////////////////////////////////////////////////////////
+:
