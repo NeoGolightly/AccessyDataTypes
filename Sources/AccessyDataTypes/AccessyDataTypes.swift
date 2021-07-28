@@ -89,7 +89,7 @@ public struct PedestrianCrossing: InfrastructureType {
 }
 
 
-public struct IntersectionNode: DateRepresentable, IDRepresentable, AdjacentInfrastructuresRepresentable {
+public struct IntersectionNode: DateRepresentable, IDRepresentable, AdjacentInfrastructuresRepresentable, Codable {
   public let id: UUID?
   public let coordinate: Coordinate
   public let createdAt: Date?
