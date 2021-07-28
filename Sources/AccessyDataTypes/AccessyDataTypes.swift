@@ -162,7 +162,7 @@ public struct Coordinate: Codable {
 ///
 ///////////////////////////////////////////////////////////////
 
-public struct CreateSidewalk: PathRepresentable {
+public struct CreateSidewalk: PathRepresentable, Codable {
   public let pathCoordinates: [Coordinate]
   public let intersectionNodes: [String]
 }
